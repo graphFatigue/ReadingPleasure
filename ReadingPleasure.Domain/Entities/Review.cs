@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace ReadingPleasure.Domain.Entities
 {
-    public class Permission : IBaseEntity
+    public class Review: IBaseEntity
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public bool IsDeleted { get; set; }
-
-        public ICollection<Role> Roles { get; set; } = new List<Role>();
+        public Guid UserId { get; set; }
+        public User User { get; set; }
+        public Guid BookId { get; set; }
+        public User Book { get; set; }
     }
 }
