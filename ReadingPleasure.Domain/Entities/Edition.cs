@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace ReadingPleasure.Domain.Entities
 {
@@ -10,7 +6,9 @@ namespace ReadingPleasure.Domain.Entities
     {
         public Guid Id { get; set; }
         public int YearOfPublication { get; set; }
+        public Guid BookId { get; set; }
         public Book Book { get; set; }
+        public Guid PublishingHouseId { get; set; }
         public PublishingHouse PublishingHouse { get; set; }
         public string Description { get; set; }
         public DateTime? CreatedAt { get; set; }

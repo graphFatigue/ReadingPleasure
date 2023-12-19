@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ReadingPleasure.Domain.Enum;
 
 namespace ReadingPleasure.Domain.Entities
 {
@@ -10,6 +6,7 @@ namespace ReadingPleasure.Domain.Entities
     {
         public Guid Id { get; set; }
         public int WordsPerMinute { get; set; }
+        public Sex Sex { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public bool IsDeleted { get; set; }

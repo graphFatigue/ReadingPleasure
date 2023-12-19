@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingPleasure.API", "ReadingPleasure.API\ReadingPleasure.API.csproj", "{1FE47947-1F5E-417A-9FDA-D0B4E9E9EC9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.API", "ReadingPleasure.API\ReadingPleasure.API.csproj", "{1FE47947-1F5E-417A-9FDA-D0B4E9E9EC9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingPleasure.Domain", "ReadingPleasure.Domain\ReadingPleasure.Domain.csproj", "{E848FE1E-2C83-4F87-85B0-027176E4DD23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.Domain", "ReadingPleasure.Domain\ReadingPleasure.Domain.csproj", "{E848FE1E-2C83-4F87-85B0-027176E4DD23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingPleasure.Application", "ReadingPleasure.Application\ReadingPleasure.Application.csproj", "{0D382FD7-8CD7-49FF-915B-2BACADD35ACF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.Application", "ReadingPleasure.Application\ReadingPleasure.Application.csproj", "{0D382FD7-8CD7-49FF-915B-2BACADD35ACF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E99587F7-D066-407A-845E-873DD45A8943} = {E99587F7-D066-407A-845E-873DD45A8943}
+		{FE440AB9-9593-4516-BF68-E89FB82AFB08} = {FE440AB9-9593-4516-BF68-E89FB82AFB08}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingPleasure.Infrastructure", "ReadingPleasure.Infrastructure\ReadingPleasure.Infrastructure.csproj", "{E99587F7-D066-407A-845E-873DD45A8943}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.Infrastructure", "ReadingPleasure.Infrastructure\ReadingPleasure.Infrastructure.csproj", "{E99587F7-D066-407A-845E-873DD45A8943}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingPleasure.Abstractions", "ReadingPleasure.Abstractions\ReadingPleasure.Abstractions.csproj", "{FE440AB9-9593-4516-BF68-E89FB82AFB08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.Abstractions", "ReadingPleasure.Abstractions\ReadingPleasure.Abstractions.csproj", "{FE440AB9-9593-4516-BF68-E89FB82AFB08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingPleasure.Common", "ReadingPleasure.Common\ReadingPleasure.Common.csproj", "{B12377A7-ADB0-4E19-8606-F8D96F7A2CA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.Common", "ReadingPleasure.Common\ReadingPleasure.Common.csproj", "{B12377A7-ADB0-4E19-8606-F8D96F7A2CA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
