@@ -2,7 +2,6 @@
 using ReadingPleasure.Common.DTOs.Book;
 using ReadingPleasure.Common.DTOs.Genre;
 using ReadingPleasure.Common.DTOs.Review;
-using ReadingPleasure.Domain.Enum;
 
 namespace ReadingPleasure.Common.DTOs.Reader
 {
@@ -10,7 +9,6 @@ namespace ReadingPleasure.Common.DTOs.Reader
     {
         public Guid Id { get; set; }
         public int WordsPerMinute { get; set; }
-        public Sex Sex { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public bool IsDeleted { get; set; }

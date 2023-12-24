@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ReadingPleasure.Common.DTOs.PublishingHouse;
+using ReadingPleasure.Common.Utility;
+
 
 namespace ReadingPleasure.Abstractions.Application.Services
 {
-    internal interface IPublishingHouseService
+    public interface IPublishingHouseService
     {
+        Task<PaginatedList<PublishingHouseDto>> GetPublishingHousesAsync(int pageNumber = 1, int pageSize = 10,
+CancellationToken cancellationToken = default);
+        Task<PublishingHouseDto?> GetPublishingHouseByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<PublishingHouseDto> CreatePublishingHouseAsync(CreatePublishingHouseDto createPublishingHouseDto,
+            CancellationToken cancellationToken = default);
+        Task UpdatePublishingHouseAsync(Guid id, UpdatePublishingHouseDto updatePublishingHouseDto,
+            CancellationToken cancellationToken = default);
+        Task DeletePublishingHouseAsync(Guid id, CancellationToken cancellationToken = default);
     }
 }

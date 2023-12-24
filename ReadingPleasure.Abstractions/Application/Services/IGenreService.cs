@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ReadingPleasure.Common.DTOs.Genre;
+using ReadingPleasure.Common.Utility;
+
 
 namespace ReadingPleasure.Abstractions.Application.Services
 {
-    internal interface IGenreService
+    public interface IGenreService
     {
+        Task<PaginatedList<GenreDto>> GetGenresAsync(int pageNumber = 1, int pageSize = 10,
+CancellationToken cancellationToken = default);
+        Task<GenreDto?> GetGenreByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<GenreDto> CreateGenreAsync(CreateGenreDto createGenreDto,
+            CancellationToken cancellationToken = default);
+        Task UpdateGenreAsync(Guid id, UpdateGenreDto updateGenreDto,
+            CancellationToken cancellationToken = default);
+        Task DeleteGenreAsync(Guid id, CancellationToken cancellationToken = default);
     }
 }

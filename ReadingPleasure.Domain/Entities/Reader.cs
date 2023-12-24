@@ -1,12 +1,10 @@
-﻿using ReadingPleasure.Domain.Enum;
-
+﻿
 namespace ReadingPleasure.Domain.Entities
 {
     public class Reader: IBaseEntity
     {
         public Guid Id { get; set; }
         public int WordsPerMinute { get; set; }
-        public Sex Sex { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public bool IsDeleted { get; set; }

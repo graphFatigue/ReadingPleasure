@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ReadingPleasure.Common.DTOs.Author;
+using ReadingPleasure.Common.Utility;
 
 namespace ReadingPleasure.Abstractions.Application.Services
 {
-    internal interface IAuthorService
+    public interface IAuthorService
     {
+        Task<PaginatedList<AuthorDto>> GetAuthorsAsync(int pageNumber = 1, int pageSize = 10,
+CancellationToken cancellationToken = default);
+        Task<AuthorDto?> GetAuthorByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<AuthorDto> CreateAuthorAsync(CreateAuthorDto createAuthorDto,
+            CancellationToken cancellationToken = default);
+        Task UpdateAuthorAsync(Guid id, UpdateAuthorDto updateAuthorDto,
+            CancellationToken cancellationToken = default);
+        Task DeleteAuthorAsync(Guid id, CancellationToken cancellationToken = default);
     }
 }

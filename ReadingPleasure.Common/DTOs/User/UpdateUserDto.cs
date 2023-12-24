@@ -1,4 +1,4 @@
-﻿
+﻿using ReadingPleasure.Domain.Enum;
 
 namespace ReadingPleasure.Common.DTOs.User
 {
@@ -7,5 +7,6 @@ namespace ReadingPleasure.Common.DTOs.User
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
+        public Sex Sex { get; set; }
     }
 }

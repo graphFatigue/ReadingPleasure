@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ReadingPleasure.Common.DTOs.Edition;
+using ReadingPleasure.Common.Utility;
 
 namespace ReadingPleasure.Abstractions.Application.Services
 {
-    internal interface IEditionService
+    public interface IEditionService
     {
+        Task<PaginatedList<EditionDto>> GetEditionsAsync(int pageNumber = 1, int pageSize = 10,
+CancellationToken cancellationToken = default);
+        Task<EditionDto?> GetEditionByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<EditionDto> CreateEditionAsync(CreateEditionDto createEditionDto,
+            CancellationToken cancellationToken = default);
+        Task UpdateEditionAsync(Guid id, UpdateEditionDto updateEditionDto,
+            CancellationToken cancellationToken = default);
+        Task DeleteEditionAsync(Guid id, CancellationToken cancellationToken = default);
     }
 }
