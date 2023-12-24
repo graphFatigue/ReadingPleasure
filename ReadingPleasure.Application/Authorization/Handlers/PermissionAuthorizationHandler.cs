@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.VisualBasic;
 using ReadingPleasure.Application.Authorization.Requirements;
 using System.Security.Claims;
-
+using Constants = ReadingPleasure.Common.Constants.Constants;
 
 namespace ReadingPleasure.Application.Authorization.Handlers
 {

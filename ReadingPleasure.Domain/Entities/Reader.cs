@@ -15,6 +15,7 @@ namespace ReadingPleasure.Domain.Entities
         public ICollection<Genre> FavoriteGenres { get; set; } = new List<Genre>();
         public ICollection<Book> FavoriteBooks { get; set; } = new List<Book>();
         public ICollection<Author> FavoriteAuthors { get; set; } = new List<Author>();
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
 
     }
 }

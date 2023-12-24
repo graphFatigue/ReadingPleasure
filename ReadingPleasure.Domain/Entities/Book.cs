@@ -16,5 +16,7 @@ namespace ReadingPleasure.Domain.Entities
 
         public ICollection<Genre> Genres { get; set; } = new List<Genre>();
         public ICollection<Author> Authors { get; set; } = new List<Author>();
+        public ICollection<Edition> Editions { get; set; } = new List<Edition>();
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
     }
 }

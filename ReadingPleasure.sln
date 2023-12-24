@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.Domain", "R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.Application", "ReadingPleasure.Application\ReadingPleasure.Application.csproj", "{0D382FD7-8CD7-49FF-915B-2BACADD35ACF}"
 	ProjectSection(ProjectDependencies) = postProject
+		{B12377A7-ADB0-4E19-8606-F8D96F7A2CA8} = {B12377A7-ADB0-4E19-8606-F8D96F7A2CA8}
 		{E99587F7-D066-407A-845E-873DD45A8943} = {E99587F7-D066-407A-845E-873DD45A8943}
 		{FE440AB9-9593-4516-BF68-E89FB82AFB08} = {FE440AB9-9593-4516-BF68-E89FB82AFB08}
 	EndProjectSection
@@ -16,8 +17,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.Infrastructure", "ReadingPleasure.Infrastructure\ReadingPleasure.Infrastructure.csproj", "{E99587F7-D066-407A-845E-873DD45A8943}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.Abstractions", "ReadingPleasure.Abstractions\ReadingPleasure.Abstractions.csproj", "{FE440AB9-9593-4516-BF68-E89FB82AFB08}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B12377A7-ADB0-4E19-8606-F8D96F7A2CA8} = {B12377A7-ADB0-4E19-8606-F8D96F7A2CA8}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.Common", "ReadingPleasure.Common\ReadingPleasure.Common.csproj", "{B12377A7-ADB0-4E19-8606-F8D96F7A2CA8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E848FE1E-2C83-4F87-85B0-027176E4DD23} = {E848FE1E-2C83-4F87-85B0-027176E4DD23}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

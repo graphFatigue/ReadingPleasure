@@ -15,5 +15,7 @@ namespace ReadingPleasure.Domain.Entities
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public bool IsDeleted { get; set; }
+        public Guid ReaderId { get; set; }
+        public Reader Reader { get; set; }
     }
 }
