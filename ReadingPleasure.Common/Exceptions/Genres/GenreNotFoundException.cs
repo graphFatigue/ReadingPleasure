@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReadingPleasure.Common.Exceptions.Edition
+namespace ReadingPleasure.Common.Exceptions.Genres
 {
-    public class EditionNotFoundException : NotFoundException
+    public class GenreNotFoundException : NotFoundException
     {
-        public EditionNotFoundException() : base("Edition was not found")
+        public GenreNotFoundException() : base("Genre was not found")
         {
         }
     }

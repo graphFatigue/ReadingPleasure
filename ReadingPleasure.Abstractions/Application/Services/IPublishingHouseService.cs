@@ -6,7 +6,7 @@ namespace ReadingPleasure.Abstractions.Application.Services
 {
     public interface IPublishingHouseService
     {
-        Task<PaginatedList<PublishingHouseDto>> GetPublishingHousesAsync(int pageNumber = 1, int pageSize = 10,
+        Task<IEnumerable<PublishingHouseDto>> GetPublishingHousesAsync(int pageNumber = 1, int pageSize = 10,
 CancellationToken cancellationToken = default);
         Task<PublishingHouseDto?> GetPublishingHouseByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<PublishingHouseDto> CreatePublishingHouseAsync(CreatePublishingHouseDto createPublishingHouseDto,

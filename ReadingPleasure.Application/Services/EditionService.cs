@@ -2,7 +2,7 @@
 using ReadingPleasure.Abstractions.Application.Services;
 using ReadingPleasure.Abstractions.Infrastructure;
 using ReadingPleasure.Common.DTOs.Edition;
-using ReadingPleasure.Common.Exceptions.Edition;
+using ReadingPleasure.Common.Exceptions.Editions;
 using ReadingPleasure.Domain.Entities;
 
 namespace ReadingPleasure.Application.Services
@@ -64,9 +64,20 @@ namespace ReadingPleasure.Application.Services
             return _mapper.Map<IEnumerable<EditionDto>>(editions);
         }
 
-        public Task UpdateEditionAsync(Guid id, UpdateEditionDto updateEditionDto, CancellationToken cancellationToken = default)
+        public async Task UpdateEditionAsync(Guid id, UpdateEditionDto updateEditionDto, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            var edition = await _unitOfWork.GetRepository<IEditionRepository>()
+                .GetByIdAsync(id, cancellationToken);
+            if (edition is null)
+            {
+                throw new EditionNotFoundException();
+            }
+
+            edition.Description = updateEditionDto.Description;
+            edition.YearOfPublication = updateEditionDto.YearOfPublication;
+
+            _unitOfWork.GetRepository<IEditionRepository>().Update(edition);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
         }
     }
 }

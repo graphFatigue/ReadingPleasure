@@ -2,6 +2,7 @@
 using ReadingPleasure.Abstractions.Application.Services;
 using ReadingPleasure.Abstractions.Infrastructure;
 using ReadingPleasure.Common.DTOs.Book;
+using ReadingPleasure.Common.Exceptions.Authors;
 using ReadingPleasure.Common.Exceptions.Books;
 using ReadingPleasure.Common.Utility;
 using ReadingPleasure.Domain.Entities;
@@ -74,11 +75,11 @@ namespace ReadingPleasure.Application.Services
 
         public async Task<IEnumerable<BookDto>> GetBooksByAuthorId(Guid authorId, CancellationToken cancellationToken = default)
         {
-            var book = await _unitOfWork.GetRepository<IBookRepository>()
+            var author = await _unitOfWork.GetRepository<IAuthorRepository>()
                 .GetByIdAsync(authorId, cancellationToken);
-            if (book is null)
+            if (author is null)
             {
-                throw new BookNotFoundException();
+                throw new AuthorNotFoundException();
             }
 
             var books = await _unitOfWork.GetRepository<IBookRepository>()

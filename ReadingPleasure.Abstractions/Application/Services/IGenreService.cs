@@ -6,7 +6,7 @@ namespace ReadingPleasure.Abstractions.Application.Services
 {
     public interface IGenreService
     {
-        Task<PaginatedList<GenreDto>> GetGenresAsync(int pageNumber = 1, int pageSize = 10,
+        Task<IEnumerable<GenreDto>> GetGenresAsync(int pageNumber = 1, int pageSize = 10,
 CancellationToken cancellationToken = default);
         Task<GenreDto?> GetGenreByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<GenreDto> CreateGenreAsync(CreateGenreDto createGenreDto,
