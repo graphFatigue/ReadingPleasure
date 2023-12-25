@@ -1,10 +1,6 @@
-﻿using ReadingPleasure.Abstractions.Infrastructure;
+﻿using Microsoft.EntityFrameworkCore;
+using ReadingPleasure.Abstractions.Infrastructure;
 using ReadingPleasure.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReadingPleasure.Infrastructure.Repositories
 {
@@ -12,6 +8,14 @@ namespace ReadingPleasure.Infrastructure.Repositories
     {
         public GenreRepository(AppDbContext context) : base(context)
         {
+        }
+
+        public override async Task<Genre?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            return await DbSet
+                .Include(x => x.Authors)
+                .Include(x => x.Books)
+                .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
         }
     }
 }

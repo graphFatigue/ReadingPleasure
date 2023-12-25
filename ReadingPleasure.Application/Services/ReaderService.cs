@@ -51,7 +51,7 @@ namespace ReadingPleasure.Application.Services
                 .GetByIdAsync(id, cancellationToken);
             if (reader is null)
             {
-                throw new Exception("Reader was not found");
+                throw new ReaderNotFoundException();
             }
 
             return _mapper.Map<ReaderDto>(reader);

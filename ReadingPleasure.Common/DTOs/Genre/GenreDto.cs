@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ReadingPleasure.Common.DTOs.Author;
+using ReadingPleasure.Common.DTOs.Book;
 
 namespace ReadingPleasure.Common.DTOs.Genre
 {
@@ -14,5 +11,7 @@ namespace ReadingPleasure.Common.DTOs.Genre
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public bool IsDeleted { get; set; }
+        public ICollection<AuthorDto> Authors { get; set; } = new List<AuthorDto>();
+        public ICollection<BookDto> Books { get; set; } = new List<BookDto>();
     }
 }

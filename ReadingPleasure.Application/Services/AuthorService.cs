@@ -1,34 +1,93 @@
-﻿using ReadingPleasure.Abstractions.Application.Services;
+﻿using AutoMapper;
+using ReadingPleasure.Abstractions.Application.Services;
+using ReadingPleasure.Abstractions.Infrastructure;
 using ReadingPleasure.Common.DTOs.Author;
+using ReadingPleasure.Common.Exceptions.Authors;
+using ReadingPleasure.Common.Exceptions.Readers;
 using ReadingPleasure.Common.Utility;
+using ReadingPleasure.Domain.Entities;
 
 namespace ReadingPleasure.Application.Services
 {
     public class AuthorService : IAuthorService
     {
-        public Task<AuthorDto> CreateAuthorAsync(CreateAuthorDto createAuthorDto, CancellationToken cancellationToken = default)
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
+
+        public AuthorService(
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
-            throw new NotImplementedException();
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public Task DeleteAuthorAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<AuthorDto> CreateAuthorAsync(CreateAuthorDto createAuthorDto, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            var author = _mapper.Map<Author>(createAuthorDto);
+
+            await _unitOfWork.GetRepository<IAuthorRepository>().AddAsync(author, cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return _mapper.Map<AuthorDto>(author);
         }
 
-        public Task<AuthorDto?> GetAuthorByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task DeleteAuthorAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            var author = await _unitOfWork
+                .GetRepository<IAuthorRepository>()
+                .GetByIdAsync(id, cancellationToken);
+            if (author is null)
+            {
+                throw new AuthorNotFoundException();
+            }
+
+            _unitOfWork.GetRepository<IAuthorRepository>().Delete(author);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
         }
 
-        public Task<PaginatedList<AuthorDto>> GetAuthorsAsync(int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default)
+        public async Task<AuthorDto?> GetAuthorByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            var author = await _unitOfWork
+                .GetRepository<IAuthorRepository>()
+                .GetByIdAsync(id, cancellationToken);
+            if (author is null)
+            {
+                throw new AuthorNotFoundException();
+            }
+
+            return _mapper.Map<AuthorDto>(author);
         }
 
-        public Task UpdateAuthorAsync(Guid id, UpdateAuthorDto updateAuthorDto, CancellationToken cancellationToken = default)
+        public async Task<PaginatedList<AuthorDto>> GetAuthorsAsync(int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            var authors = await _unitOfWork
+            .GetRepository<IAuthorRepository>()
+            .GetAllAsync(pageNumber, pageSize, cancellationToken);
+            var totalCount = await _unitOfWork
+                .GetRepository<IAuthorRepository>()
+                .GetCountAsync(cancellationToken);
+
+            var authorDtos = _mapper.Map<IEnumerable<AuthorDto>>(authors);
+
+            return new PaginatedList<AuthorDto>(authorDtos, totalCount, pageNumber, pageSize);
+        }
+
+        public async Task UpdateAuthorAsync(Guid id, UpdateAuthorDto updateAuthorDto, CancellationToken cancellationToken = default)
+        {
+            var author = await _unitOfWork.GetRepository<IAuthorRepository>()
+                .GetByIdAsync(id, cancellationToken);
+            if (author is null)
+            {
+                throw new ReaderNotFoundException();
+            }
+
+            author.FirstName = updateAuthorDto.FirstName;
+            author.LastName = updateAuthorDto.LastName;
+            author.Biography = updateAuthorDto.Biography;
+
+            _unitOfWork.GetRepository<IAuthorRepository>().Update(author);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
         }
     }
 }

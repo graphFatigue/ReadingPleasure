@@ -5,7 +5,7 @@ namespace ReadingPleasure.Abstractions.Application.Services
 {
     public interface IEditionService
     {
-        Task<PaginatedList<EditionDto>> GetEditionsAsync(int pageNumber = 1, int pageSize = 10,
+        Task<IEnumerable<EditionDto>> GetEditionsAsync(int pageNumber = 1, int pageSize = 10,
 CancellationToken cancellationToken = default);
         Task<EditionDto?> GetEditionByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<EditionDto> CreateEditionAsync(CreateEditionDto createEditionDto,
