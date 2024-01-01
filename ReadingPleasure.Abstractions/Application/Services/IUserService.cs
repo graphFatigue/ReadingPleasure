@@ -1,5 +1,4 @@
 ﻿using ReadingPleasure.Common.DTOs.User;
-using System.Threading.Tasks;
 
 namespace ReadingPleasure.Abstractions.Application.Services
 {

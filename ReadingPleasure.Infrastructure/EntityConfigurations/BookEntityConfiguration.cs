@@ -42,6 +42,11 @@ namespace ReadingPleasure.Infrastructure.EntityConfigurations
                 .HasColumnName("year_of_publication");
 
             builder
+                .Property(x => x.BookFile)
+                .IsRequired()
+                .HasColumnName("book_file");
+
+            builder
                 .Property(x => x.Language)
                 .IsRequired()
                 .HasColumnName("language");

@@ -27,7 +27,7 @@ namespace ReadingPleasure.Infrastructure.EntityConfigurations
 
             builder
                 .HasOne(c => c.Reader)
-                .WithMany()
+                .WithMany(x => x.Reviews)
                 .HasForeignKey(c => c.ReaderId)
                 .OnDelete(DeleteBehavior.Restrict);
 
@@ -37,7 +37,7 @@ namespace ReadingPleasure.Infrastructure.EntityConfigurations
 
             builder
                 .HasOne(c => c.Book)
-                .WithMany()
+                .WithMany(x => x.Reviews)
                 .HasForeignKey(c => c.BookId)
                 .OnDelete(DeleteBehavior.Restrict);
         }

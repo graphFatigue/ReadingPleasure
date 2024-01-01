@@ -32,6 +32,11 @@ namespace ReadingPleasure.Infrastructure.EntityConfigurations
                 .HasColumnName("biography");
 
             builder
+                .Property(x => x.Image)
+                .IsRequired()
+                .HasColumnName("image");
+
+            builder
                 .Property(s => s.Sex)
                 .HasColumnName("sex")
                 .HasMaxLength(1)

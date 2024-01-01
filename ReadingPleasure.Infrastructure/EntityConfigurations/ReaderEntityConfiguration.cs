@@ -27,8 +27,8 @@ namespace ReadingPleasure.Infrastructure.EntityConfigurations
 
             builder
                 .HasOne(c => c.User)
-                .WithMany()
-                .HasForeignKey(c => c.UserId)
+                .WithOne(x => x.Reader)
+                .HasForeignKey<Reader>(x => x.Id)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

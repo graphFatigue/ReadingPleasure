@@ -12,6 +12,7 @@ using ReadingPleasure.Common.Options;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Azure.Storage.Blobs;
 
 namespace ReadingPleasure.Application
 {
@@ -25,6 +26,7 @@ namespace ReadingPleasure.Application
             services.ConfigureOptions();
             services.ConfigureAuthorizationHandlers();
             services.AddContextAccessor();
+            services.ConfigureAzureBlobServiceClient(configuration);
         }
 
         private static void ConfigureServices(this IServiceCollection services)
@@ -112,6 +114,13 @@ namespace ReadingPleasure.Application
         {
             services.AddSingleton<IAuthorizationPolicyProvider, PermissionAuthorizationPolicyProvider>();
             services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
+        }
+
+        private static void ConfigureAzureBlobServiceClient(
+            this IServiceCollection services,
+            IConfiguration configuration)
+        {
+            services.AddScoped(_ => new BlobServiceClient(configuration.GetSection("Azure:Blob:ConnectionString").Value));
         }
     }
 }
