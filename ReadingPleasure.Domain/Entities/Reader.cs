@@ -1,7 +1,6 @@
-﻿
-namespace ReadingPleasure.Domain.Entities
+﻿namespace ReadingPleasure.Domain.Entities
 {
-    public class Reader: IBaseEntity
+    public class Reader : IBaseEntity
     {
         public Guid Id { get; set; }
         public int WordsPerMinute { get; set; }

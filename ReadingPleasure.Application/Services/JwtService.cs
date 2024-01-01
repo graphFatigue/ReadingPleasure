@@ -2,11 +2,10 @@
 using Microsoft.IdentityModel.Tokens;
 using ReadingPleasure.Abstractions.Application.Services;
 using ReadingPleasure.Common.Options;
-using ReadingPleasure.Domain.Entities;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-
+using ReadingPleasure.Domain.Entities;
 
 namespace ReadingPleasure.Application.Services
 {

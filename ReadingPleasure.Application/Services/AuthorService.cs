@@ -13,13 +13,16 @@ namespace ReadingPleasure.Application.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IStorageService _blobStorageService;
 
         public AuthorService(
             IUnitOfWork unitOfWork,
-            IMapper mapper)
+            IMapper mapper,
+            IStorageService blobStorageService)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _blobStorageService = blobStorageService;
         }
 
         public async Task<AuthorDto> CreateAuthorAsync(CreateAuthorDto createAuthorDto, CancellationToken cancellationToken = default)

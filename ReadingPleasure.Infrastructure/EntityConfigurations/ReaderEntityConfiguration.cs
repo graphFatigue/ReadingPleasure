@@ -30,14 +30,6 @@ namespace ReadingPleasure.Infrastructure.EntityConfigurations
                 .WithMany()
                 .HasForeignKey(c => c.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
-
-            builder
-                .Property(s => s.Sex)
-                .HasColumnName("sex")
-                .HasMaxLength(1)
-                .HasColumnType("varchar(1)")
-                .HasConversion<string>()
-                .IsRequired();
         }
     }
 }

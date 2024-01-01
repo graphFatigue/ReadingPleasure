@@ -10,7 +10,7 @@ namespace ReadingPleasure.Infrastructure
 {
     public static class DependencyRegistrar
     {
-        public static void ConfigurePersistenceLayerDependencies(
+        public static void ConfigureInfrastructureLayerDependencies(
             this IServiceCollection services,
             IConfiguration configuration)
         {

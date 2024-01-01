@@ -1,6 +1,4 @@
-﻿
-
-namespace ReadingPleasure.Domain.Entities
+﻿namespace ReadingPleasure.Domain.Entities
 {
     public class Genre : IBaseEntity
     {

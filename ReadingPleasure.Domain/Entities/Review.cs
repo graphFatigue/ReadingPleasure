@@ -1,7 +1,6 @@
-﻿
-namespace ReadingPleasure.Domain.Entities
+﻿namespace ReadingPleasure.Domain.Entities
 {
-    public class Review: IBaseEntity
+    public class Review : IBaseEntity
     {
         public Guid Id { get; set; }
         public string Content { get; set; }

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.API", "ReadingPleasure.API\ReadingPleasure.API.csproj", "{1FE47947-1F5E-417A-9FDA-D0B4E9E9EC9F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0D382FD7-8CD7-49FF-915B-2BACADD35ACF} = {0D382FD7-8CD7-49FF-915B-2BACADD35ACF}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingPleasure.Domain", "ReadingPleasure.Domain\ReadingPleasure.Domain.csproj", "{E848FE1E-2C83-4F87-85B0-027176E4DD23}"
 EndProject

@@ -1,5 +1,4 @@
-﻿
-namespace ReadingPleasure.Domain.Entities
+﻿namespace ReadingPleasure.Domain.Entities
 {
     public class Book : IBaseEntity
     {
@@ -10,6 +9,8 @@ namespace ReadingPleasure.Domain.Entities
         public int YearOfPublication { get; set; }
         public string OriginalLanguage { get; set; }
         public string Language { get; set; }
+        public string? Image { get; set; }
+        public string? BookFile { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public bool IsDeleted { get; set; }

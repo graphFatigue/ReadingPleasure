@@ -12,6 +12,8 @@ namespace ReadingPleasure.Common.DTOs.Book
         public int YearOfPublication { get; set; }
         public string OriginalLanguage { get; set; }
         public string Language { get; set; }
+        public byte[]? ImageBytes { get; set; }
+        public byte[]? BookFileBytes { get; set; }
 
         public ICollection<GenreDto> Genres { get; set; } = new List<GenreDto>();
         public ICollection<AuthorDto> Authors { get; set; } = new List<AuthorDto>();

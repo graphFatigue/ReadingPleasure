@@ -9,6 +9,7 @@ namespace ReadingPleasure.Domain.Entities
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public Sex Sex { get; set; }
+        public string? Image { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public bool IsDeleted { get; set; }

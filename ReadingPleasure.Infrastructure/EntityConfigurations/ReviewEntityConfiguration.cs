@@ -22,13 +22,13 @@ namespace ReadingPleasure.Infrastructure.EntityConfigurations
                 .HasColumnName("content");
 
             builder
-                .Property(s => s.UserId)
+                .Property(s => s.ReaderId)
                 .HasColumnName("user_id");
 
             builder
-                .HasOne(c => c.User)
+                .HasOne(c => c.Reader)
                 .WithMany()
-                .HasForeignKey(c => c.UserId)
+                .HasForeignKey(c => c.ReaderId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder
